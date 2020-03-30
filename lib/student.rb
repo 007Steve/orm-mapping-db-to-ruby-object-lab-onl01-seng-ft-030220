@@ -105,5 +105,8 @@ def self.first_student_in_grade_10
     self.new_from_db(first_student_row)
   end
   
-  
+  def self.all_students_in_grade_X(x)
+    sql = "SELECT * FROM students WHERE grade = ?"
+    DB[:conn].execute(sql, x)
+  end
 end
